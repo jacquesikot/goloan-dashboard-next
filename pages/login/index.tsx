@@ -20,11 +20,11 @@ import {
   Text1,
   Text2,
   MobileLogoContainer,
-} from './styles';
+} from '../../src/pageStyles/loginStyles';
 import theme from '../../src/theme/theme';
 import { LinkIcon1 } from '../../src/svg';
 import { TextInput } from '../../src/components';
-import useLogin from './useLogin';
+import useLogin from '../../src/pageHooks/useLogin';
 
 const colors = theme.colors;
 
