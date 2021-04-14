@@ -33,7 +33,6 @@ const Login = () => {
     handleSubmit,
     handleEmailChange,
     handlePasswordChange,
-    validationError,
     emailValidationError,
     loading,
   } = useLogin();
