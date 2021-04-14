@@ -9,7 +9,8 @@ const useTextInput = (id: string) => {
   const controls = useAnimation();
 
   const inputValue =
-    typeof window !== 'undefined' && document.getElementById('email').value;
+    typeof window !== 'undefined' &&
+    (<HTMLInputElement>document.getElementById(id)).value;
 
   const handleSelect = () => {
     setFocus(true);
