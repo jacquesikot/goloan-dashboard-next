@@ -19,7 +19,6 @@ const useLogin = () => {
 
   const emailSchema = Yup.object().shape({
     email: Yup.string().email().required(),
-    password: Yup.string().min(5).max(20).required(),
   });
 
   const handleSubmit = async (event) => {
@@ -71,13 +70,13 @@ const useLogin = () => {
 
   typeof window !== 'undefined' &&
     input.addEventListener('blur', (e) => {
-      const data = { email: emailValue, password: '123456' };
+      const data = { email: emailValue };
 
-      loginSchema
+      emailSchema
         .isValid(data)
-        .then((valid) => valid && setValidationError(false));
+        .then((valid) => valid && setEmailValidationError(false));
 
-      setValidationError(true);
+      setEmailValidationError(true);
     });
 
   const showError = (error: any) => {
