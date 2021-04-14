@@ -13,6 +13,8 @@ interface Props {
   width: string;
 }
 
+const defaultComp = () => {};
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -195,3 +197,5 @@ export const MobileLogoContainer = styled.div`
     display: none;
   }
 `;
+
+export default defaultComp;
