@@ -34,6 +34,7 @@ const Login = () => {
     handleEmailChange,
     handlePasswordChange,
     validationError,
+    emailValidationError,
     loading,
   } = useLogin();
 
@@ -60,7 +61,7 @@ const Login = () => {
               id="email"
               type="email"
               onChange={handleEmailChange}
-              error={validationError}
+              error={emailValidationError}
             />
             <TextInput
               placeholder="Password"

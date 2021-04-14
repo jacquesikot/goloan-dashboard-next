@@ -7,9 +7,17 @@ const useLogin = () => {
   const [emailValue, setEmailValue] = useState<string>();
   const [passwordValue, setPasswordValue] = useState<string>();
   const [validationError, setValidationError] = useState<boolean>(false);
+  const [emailValidationError, setEmailValidationError] = useState<boolean>(
+    false
+  );
   const [loading, setIsLoading] = useState<boolean>(false);
 
   const loginSchema = Yup.object().shape({
+    email: Yup.string().email().required(),
+    password: Yup.string().min(5).max(20).required(),
+  });
+
+  const emailSchema = Yup.object().shape({
     email: Yup.string().email().required(),
     password: Yup.string().min(5).max(20).required(),
   });
@@ -45,13 +53,13 @@ const useLogin = () => {
   const handleEmailChange = async (event) => {
     setEmailValue(event.target.value);
 
-    const data = { email: emailValue, password: '123456' };
+    const data = { email: emailValue };
 
-    loginSchema
+    emailSchema
       .isValid(data)
-      .then((valid) => valid && setValidationError(false));
+      .then((valid) => valid && setEmailValidationError(false));
 
-    setValidationError(true);
+    setEmailValidationError(true);
   };
 
   const handlePasswordChange = (event) => {
@@ -87,6 +95,7 @@ const useLogin = () => {
     handleEmailChange,
     handlePasswordChange,
     validationError,
+    emailValidationError,
     loading,
   };
 };
