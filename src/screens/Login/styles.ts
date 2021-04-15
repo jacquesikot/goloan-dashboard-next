@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Button } from '@chakra-ui/react';
 
-import theme from '../theme/theme';
+import theme from '../../theme/theme';
 
 const colors = theme.colors;
 
