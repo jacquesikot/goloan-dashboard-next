@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { Heading, Text, Button } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
 import theme from '../theme/theme';
 
 const colors = theme.colors;
 
-const MOBILE_FORM_WIDTH = '87%';
-const TAB_FORM_WIDTH = '70%';
+const MOBILE_FORM_WIDTH = '89%';
 
 interface Props {
   color: string;
@@ -47,10 +46,6 @@ export const FormColumn = styled.div`
   @media screen and (max-width: 1025px) {
     width: 100vw;
   }
-
-  @media screen and (max-width: 414px) {
-    padding-top: 30px;
-  }
 `;
 
 export const TextContainer = styled.div`
@@ -75,16 +70,18 @@ export const LogoImg = styled.img`
   width: 123px;
 `;
 
-export const HeadText = styled(Heading)`
+export const HeadText = styled.p`
   font-size: 56px;
   color: ${colors.white};
   margin-bottom: 20px;
+  font-weight: 600;
+  line-height: 62px;
 `;
 
 export const LoginImg = styled.img`
   width: 70vw;
   position: fixed;
-  top: 250px;
+  top: 280px;
   right: 600px;
 
   @media screen and (max-width: 1250px) {
@@ -105,9 +102,16 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const SigninText = styled(Heading)`
+export const SigninText = styled.p`
   font-size: 32px;
-  color: ${colors.dark};
+  color: ${colors.primary};
+  width: 70%;
+  font-weight: 600;
+  line-height: 40px;
+
+  @media screen and (max-width: 800px) {
+    width: ${MOBILE_FORM_WIDTH};
+  }
 `;
 
 export const InputContainer = styled.form`
@@ -133,14 +137,14 @@ export const ForgotPasswordContainer = styled.div`
 export const ForgotText = styled.p`
   margin-left: 10px;
   font-size: 13px;
-  color: ${colors.blue};
+  color: ${colors.purple};
   cursor: pointer;
-  font-weight: 900;
-  font-family: Inter;
+  font-weight: 700;
   letter-spacing: 0.5px;
+  font-family: 'Inter', sans-serif;
 
   &:hover {
-    color: ${colors.dark};
+    color: ${colors.primary};
   }
 `;
 
@@ -149,7 +153,7 @@ export const LoginButton = styled(Button)`
   height: 48px;
   border-radius: 12px;
   margin-top: 30px;
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
 `;
 
@@ -163,35 +167,34 @@ export const SignUpContainer = styled.div`
 `;
 
 export const Text1 = styled.p`
-  color: ${colors.dark};
+  color: ${colors.primary};
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 700;
   margin-right: 10px;
   letter-spacing: 0.5px;
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
 `;
 
 export const Text2 = styled.p`
-  color: ${colors.blue};
+  color: ${colors.purple};
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 700;
   margin-left: 8px;
   letter-spacing: 0.5px;
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
 
   &:hover {
-    color: ${colors.dark};
+    color: ${colors.primary};
   }
 `;
 
 export const MobileLogoContainer = styled.div`
-  cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   width: ${MOBILE_FORM_WIDTH};
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 
   @media screen and (min-width: 450px) {
     display: none;

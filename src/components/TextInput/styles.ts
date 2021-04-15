@@ -4,6 +4,7 @@ import { FiEye } from 'react-icons/fi';
 import { FiEyeOff } from 'react-icons/fi';
 import { FiCheck } from 'react-icons/fi';
 import { FiX } from 'react-icons/fi';
+import { Input as cInput } from '@chakra-ui/react';
 
 import theme from '../../theme/theme';
 
@@ -14,36 +15,34 @@ export const Container = styled.div`
   height: 80px;
   padding: 15px 20px;
   border-radius: 12px;
-  background-color: ${({ focus }) => (focus ? colors.white : colors.light)};
+  background-color: ${({ focus, input }) =>
+    focus ? colors.white : !input ? colors.light : colors.lighBlue};
   display: flex;
   align-items: center;
   border-width: 2px;
-  border-color: ${({ focus }) => (focus ? colors.blue : colors.white)};
+  border-color: ${({ focus, input }) =>
+    focus ? colors.blue : input ? colors.white : colors.white};
 `;
 
 export const Placeholder = styled(motion.p)`
   color: ${colors.grey};
-  font-size: 13px;
-  font-weight: 900;
-  font-family: Inter;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.7px;
   position: absolute;
+  font-family: 'Inter', sans-serif;
+  z-index: 100;
 `;
 
-export const Input = styled(motion.input)`
+export const Input = styled(cInput)`
   margin-top: 15px;
   height: 20px;
   width: 100%;
-  border-radius: none;
-  background-color: ${({ focus }) => (focus ? colors.white : colors.light)};
-  font-family: Inter;
-  color: ${colors.dark};
-  font-size: 14px;
-  font-weight: 900;
-
-  &:focus {
-    outline-width: 0;
-  }
+  background-color: rgba(0, 0, 0, 0);
+  color: ${colors.primary};
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
 `;
 
 export const EyeOpen = styled(FiEye)`

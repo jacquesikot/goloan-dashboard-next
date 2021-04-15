@@ -16,7 +16,6 @@ interface Props {
   type: string;
   error?: boolean;
   onChange?: any;
-  onpaste?: any;
 }
 
 const TextInput = ({
@@ -25,7 +24,6 @@ const TextInput = ({
   type,
   error,
   onChange,
-  onpaste,
   ...props
 }: Props) => {
   const {
@@ -51,18 +49,19 @@ const TextInput = ({
     (error ? <Error size={iconSize} /> : <Check size={iconSize} />);
 
   return (
-    <Container focus={focus}>
+    <Container focus={focus} input={inputValue}>
       <Placeholder onClick={handleSelect} animate={controls}>
         {placeholder}
       </Placeholder>
       <Input
+        variant="unstyled"
         type={type}
         id={id}
         focus={focus}
+        input={inputValue}
         onSelect={handleSelect}
         onBlur={handleOnBlur}
         onChange={onChange}
-        onpaster={onpaste}
         {...props}
       />
       {type === 'password' ? returnEye() : returnValidation()}
