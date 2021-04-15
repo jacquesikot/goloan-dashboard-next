@@ -36,7 +36,7 @@ export const Placeholder = styled(motion.p)`
 
 export const Input = styled(cInput)`
   margin-top: 15px;
-  height: 20px;
+  height: 30px;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
   color: ${colors.primary};
