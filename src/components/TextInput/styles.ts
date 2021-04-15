@@ -43,10 +43,6 @@ export const Input = styled(cInput)`
   font-size: 16px;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
-
-  &:focus {
-    outline-width: 0;
-  }
 `;
 
 export const EyeOpen = styled(FiEye)`
