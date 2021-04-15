@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 const useLogin = () => {
   const toast = useToast();
   const [emailValue, setEmailValue] = useState<string>();
-  const [passwordValue, setPasswordValue] = useState<string>();
   const [validationError, setValidationError] = useState<boolean>(false);
   const [emailValidationError, setEmailValidationError] = useState<boolean>(
     false
@@ -21,11 +20,20 @@ const useLogin = () => {
     email: Yup.string().email().required(),
   });
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (info) => {
+    console.log(info);
+    if (!info.email || !info.password)
+      return toast({
+        description: 'email and password are required',
+        status: 'error',
+        duration: 7000,
+        isClosable: true,
+        position: 'top',
+      });
+
     setIsLoading(true);
 
-    const data = { email: emailValue, password: passwordValue };
+    const data = { email: info.email, password: info.password };
 
     loginSchema.isValid(data).then((valid) => {
       if (valid) {
@@ -47,22 +55,6 @@ const useLogin = () => {
       showError(e.errors);
       setIsLoading(false);
     });
-  };
-
-  const handleEmailChange = async (event) => {
-    setEmailValue(event.target.value);
-
-    const data = { email: emailValue };
-
-    emailSchema
-      .isValid(data)
-      .then((valid) => valid && setEmailValidationError(false));
-
-    setEmailValidationError(true);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPasswordValue(event.target.value);
   };
 
   const input =
@@ -91,11 +83,8 @@ const useLogin = () => {
 
   return {
     handleSubmit,
-    handleEmailChange,
-    handlePasswordChange,
-    validationError,
-    emailValidationError,
     loading,
+    loginSchema,
   };
 };
 

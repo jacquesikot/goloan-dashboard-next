@@ -21,7 +21,7 @@ export const Container = styled.div`
   align-items: center;
   border-width: 2px;
   border-color: ${({ focus, input }) =>
-    focus ? colors.blue : input ? colors.white : colors.white};
+    focus ? colors.purple : input ? colors.white : colors.white};
 `;
 
 export const Placeholder = styled(motion.p)`

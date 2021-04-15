@@ -27,7 +27,7 @@ export const ImgColumn = styled.div`
   background-color: ${({ color }) => (color ? color : colors.white)};
   flex-direction: column;
   display: flex;
-  padding: 90px 80px;
+  padding: 90px 60px;
 
   @media screen and (max-width: 1025px) {
     display: none;
@@ -51,7 +51,7 @@ export const FormColumn = styled.div`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 400px;
+  width: 350px;
   height: 155px;
   flex-direction: column;
 
@@ -67,22 +67,22 @@ export const LogoContainer = styled.div`
 `;
 
 export const LogoImg = styled.img`
-  width: 123px;
+  width: 90px;
 `;
 
 export const HeadText = styled.p`
-  font-size: 56px;
+  font-size: 50px;
   color: ${colors.white};
   margin-bottom: 20px;
   font-weight: 600;
-  line-height: 62px;
+  line-height: 64px;
 `;
 
 export const LoginImg = styled.img`
-  width: 70vw;
+  width: 90vw;
   position: fixed;
-  top: 280px;
-  right: 600px;
+  top: 200px;
+  right: 500px;
 
   @media screen and (max-width: 1250px) {
     left: -400px;
@@ -106,7 +106,7 @@ export const SigninText = styled.p`
   font-size: 32px;
   color: ${colors.primary};
   width: 70%;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 40px;
 
   @media screen and (max-width: 800px) {
@@ -161,7 +161,7 @@ export const SignUpContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  margin-top: 5%;
+  margin-top: 25px;
   align-items: center;
   justify-content: center;
 `;
@@ -179,7 +179,6 @@ export const Text2 = styled.p`
   color: ${colors.purple};
   font-size: 13px;
   font-weight: 700;
-  margin-left: 8px;
   letter-spacing: 0.5px;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
