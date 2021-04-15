@@ -40,9 +40,13 @@ export const Input = styled(cInput)`
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
   color: ${colors.primary};
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   font-family: 'Inter', sans-serif;
+
+  &:focus {
+    outline-width: 0;
+  }
 `;
 
 export const EyeOpen = styled(FiEye)`

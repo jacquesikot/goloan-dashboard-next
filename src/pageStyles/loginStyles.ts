@@ -194,7 +194,7 @@ export const MobileLogoContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   width: ${MOBILE_FORM_WIDTH};
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   @media screen and (min-width: 450px) {
     display: none;
