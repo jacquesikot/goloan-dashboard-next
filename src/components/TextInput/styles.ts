@@ -31,12 +31,12 @@ export const Placeholder = styled(motion.p)`
   letter-spacing: 0.7px;
   position: absolute;
   font-family: 'Inter', sans-serif;
-  z-index: 100;
+  z-index: 1;
 `;
 
 export const Input = styled(cInput)`
-  margin-top: 15px;
-  height: 30px;
+  padding-top: 15px;
+  height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
   color: ${colors.primary};
