@@ -4,10 +4,12 @@ import Head from 'next/head';
 const NavBar = () => {
   /*===== SHOW NAVBAR  =====*/
   const showNavbar = (toggleId, navId, bodyId, headerId) => {
-    const toggle = document.getElementById(toggleId),
-      nav = document.getElementById(navId),
-      bodypd = document.getElementById(bodyId),
-      headerpd = document.getElementById(headerId);
+    const toggle =
+        typeof window !== 'undefined' && document.getElementById(toggleId),
+      nav = typeof window !== 'undefined' && document.getElementById(navId),
+      bodypd = typeof window !== 'undefined' && document.getElementById(bodyId),
+      headerpd =
+        typeof window !== 'undefined' && document.getElementById(headerId);
 
     // Validate that all variables exist
     if (toggle && nav && bodypd && headerpd) {
@@ -27,7 +29,8 @@ const NavBar = () => {
   showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header');
 
   /*===== LINK ACTIVE  =====*/
-  const linkColor = document.querySelectorAll('.nav__link');
+  const linkColor =
+    typeof window !== 'undefined' && document.querySelectorAll('.nav__link');
 
   function colorLink() {
     if (linkColor) {
