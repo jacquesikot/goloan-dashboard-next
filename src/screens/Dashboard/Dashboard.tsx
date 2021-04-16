@@ -1,13 +1,19 @@
 import React from 'react';
 import { NavBar } from '../../components';
+import styled from 'styled-components';
 
 import {} from './styles';
 
+const Container = styled.div`
+  padding: 100px 0px;
+`;
+
 const Dashboard = () => {
   return (
-    <div>
+    <Container>
       <NavBar />
-    </div>
+      <h1>Dashboard</h1>
+    </Container>
   );
 };
 
