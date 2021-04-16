@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { Heading, Text } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Dashboard } from '../src/screens';
 
 export default function Home() {
   return (
@@ -9,9 +8,7 @@ export default function Home() {
         <title>Goloan Dashboard</title>
         <link rel="icon" href="/goloanFavicon.svg" />
       </Head>
-      <Link href="login">
-        <Heading>Sign Up</Heading>
-      </Link>
+      <Dashboard />
     </>
   );
 }

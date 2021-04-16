@@ -1,6 +1,7 @@
 import '@fontsource/poppins/400.css';
 import '@fontsource/inter';
 import '../styles/globals.css';
+import '../styles/nav.style.css';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 
