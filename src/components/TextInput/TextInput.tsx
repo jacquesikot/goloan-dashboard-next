@@ -16,6 +16,7 @@ interface Props {
   type: string;
   error?: boolean;
   onChange?: any;
+  touched: boolean;
 }
 
 const TextInput = ({
@@ -24,6 +25,7 @@ const TextInput = ({
   type,
   error,
   onChange,
+  touched,
   ...props
 }: Props) => {
   const {
@@ -34,7 +36,7 @@ const TextInput = ({
     visible,
     handleEyeClick,
     iconSize,
-    inputValue,
+    value,
   } = useTextInput(id);
 
   const returnEye = () =>
@@ -45,11 +47,10 @@ const TextInput = ({
     );
 
   const returnValidation = () =>
-    inputValue &&
-    (error ? <Error size={iconSize} /> : <Check size={iconSize} />);
+    value && (error ? <Error size={iconSize} /> : <Check size={iconSize} />);
 
   return (
-    <Container focus={focus} input={inputValue}>
+    <Container focus={focus} input={value} error={error}>
       <Placeholder onClick={handleSelect} animate={controls}>
         {placeholder}
       </Placeholder>
@@ -58,7 +59,7 @@ const TextInput = ({
         type={type}
         id={id}
         focus={focus}
-        input={inputValue}
+        input={value}
         onSelect={handleSelect}
         onBlur={handleOnBlur}
         onChange={onChange}

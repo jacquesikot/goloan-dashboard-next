@@ -6,6 +6,7 @@ import theme from '../../theme/theme';
 const colors = theme.colors;
 
 const MOBILE_FORM_WIDTH = '89%';
+const IMG_COLUMN_HEIGHT = '105vh';
 
 interface Props {
   color: string;
@@ -23,7 +24,7 @@ export const Container = styled.div`
 
 export const ImgColumn = styled.div`
   width: ${({ width }: Props) => (width ? width : '43vw')};
-  height: 100vh;
+  height: ${IMG_COLUMN_HEIGHT};
   background-color: ${({ color }) => (color ? color : colors.white)};
   flex-direction: column;
   display: flex;
@@ -36,12 +37,13 @@ export const ImgColumn = styled.div`
 
 export const FormColumn = styled.div`
   width: ${({ width }: Props) => (width ? width : '57vw')};
-  height: 100vh;
+  height: ${IMG_COLUMN_HEIGHT};
   background-color: ${({ color }) => (color ? color : colors.white)};
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 80px;
 
   @media screen and (max-width: 1025px) {
     width: 100vw;
@@ -73,7 +75,7 @@ export const LogoImg = styled.img`
 export const HeadText = styled.p`
   font-size: 50px;
   color: ${colors.white};
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 600;
   line-height: 64px;
 `;
@@ -94,7 +96,7 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 53%;
-  height: 75%;
+  height: 100%;
   margin: 10px 20px;
 
   @media screen and (max-width: 414px) {
@@ -115,36 +117,15 @@ export const SigninText = styled.p`
 `;
 
 export const InputContainer = styled.form`
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 20px;
-  height: 175px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   @media screen and (max-width: 414px) {
     width: 100%;
-  }
-`;
-
-export const ForgotPasswordContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
-export const ForgotText = styled.p`
-  margin-left: 10px;
-  color: ${colors.purple};
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
-
-  &:hover {
-    color: ${colors.primary};
   }
 `;
 
@@ -155,37 +136,6 @@ export const LoginButton = styled(Button)`
   margin-top: 30px;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
-`;
-
-export const SignUpContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-top: 25px;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Text1 = styled.p`
-  color: ${colors.primary};
-  font-size: 13px;
-  font-weight: 700;
-  margin-right: 10px;
-  letter-spacing: 0.5px;
-  font-family: 'Inter', sans-serif;
-`;
-
-export const Text2 = styled.p`
-  color: ${colors.purple};
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
-
-  &:hover {
-    color: ${colors.primary};
-  }
 `;
 
 export const MobileLogoContainer = styled.div`

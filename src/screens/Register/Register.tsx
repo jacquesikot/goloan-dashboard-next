@@ -14,27 +14,22 @@ import {
   FormContainer,
   SigninText,
   InputContainer,
-  ForgotPasswordContainer,
-  ForgotText,
   LoginButton,
-  SignUpContainer,
-  Text1,
-  Text2,
   MobileLogoContainer,
 } from './styles';
 import theme from '../../theme/theme';
-import { LinkIcon1 } from '../../svg';
 import { TextInput } from '../../components';
-import useLogin from './useLogin';
+import useRegister from './useRegister';
 
 const colors = theme.colors;
 
-const Login = () => {
-  const { handleSubmit, loading, loginSchema } = useLogin();
+const Register = () => {
+  const { handleSubmit, loading, registerSchema } = useRegister();
 
   return (
     <Container>
       <ImgColumn color={colors.purple}>
+        {' '}
         <LogoContainer>
           <LogoImg src={require('../../images/goloanLogoWhite.svg')} />
         </LogoContainer>
@@ -48,15 +43,35 @@ const Login = () => {
           <LogoImg src={require('../../images/goloanLogo.svg')} />
         </MobileLogoContainer>
         <FormContainer>
-          <SigninText>Sign in to Goloan</SigninText>
+          <SigninText>Sign up</SigninText>
           <Formik
-            initialValues={{ email: '', password: '' }}
-            validationSchema={loginSchema}
+            initialValues={{
+              full_name: '',
+              email: '',
+              phone_number: '',
+              password: '',
+            }}
+            validationSchema={registerSchema}
             onSubmit={handleSubmit}
           >
-            {({ errors, handleChange, handleSubmit, touched, values }) => {
+            {({ errors, handleChange, handleSubmit, touched }) => {
+              console.log(errors.email);
+
               return (
-                <InputContainer onSubmit={handleSubmit} id="login">
+                <InputContainer
+                  onSubmit={handleSubmit}
+                  id="register"
+                  autoComplete="off"
+                >
+                  <TextInput
+                    placeholder="FULL NAME"
+                    id="full_name"
+                    type="text"
+                    onChange={handleChange}
+                    error={errors.full_name ? true : false}
+                    touched={touched.full_name ? true : false}
+                  />
+
                   <TextInput
                     placeholder="EMAIL"
                     id="email"
@@ -67,40 +82,38 @@ const Login = () => {
                   />
 
                   <TextInput
+                    placeholder="PHONE NUMBER"
+                    id="phone_number"
+                    type="phone"
+                    onChange={handleChange}
+                    error={errors.phone_number ? true : false}
+                    touched={touched.phone_number ? true : false}
+                  />
+
+                  <TextInput
                     placeholder="PASSWORD"
                     id="password"
                     type="password"
                     onChange={handleChange}
-                    error={errors.password ? true : false}
-                    touched={touched.password ? true : false}
+                    error={errors.phone_number ? true : false}
+                    touched={touched.phone_number ? true : false}
                   />
                 </InputContainer>
               );
             }}
           </Formik>
-          <ForgotPasswordContainer>
-            <Link href="">
-              <ForgotText fontWeight="bold">Forgot Password?</ForgotText>
-            </Link>
-          </ForgotPasswordContainer>
           <LoginButton
             isLoading={loading}
             type="submit"
-            form="login"
+            form="register"
             colorScheme="brandPurple"
           >
-            Sign in
+            Sign up
           </LoginButton>
-          <SignUpContainer>
-            <Text1>Not a member?</Text1>
-            <Link href="/register">
-              <Text2>Sign up now</Text2>
-            </Link>
-          </SignUpContainer>
         </FormContainer>
       </FormColumn>
     </Container>
   );
 };
 
-export default Login;
+export default Register;

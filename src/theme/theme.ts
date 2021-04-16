@@ -9,5 +9,6 @@ export default {
     green: '#4FBF67',
     light: '#f7f7f7',
     grey: '#808191',
+    pink: '#FB7B8E',
   },
 };

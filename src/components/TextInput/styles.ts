@@ -15,13 +15,19 @@ export const Container = styled.div`
   height: 80px;
   padding: 15px 20px;
   border-radius: 12px;
-  background-color: ${({ focus, input }) =>
+  background-color: ${({ focus, input, error }) =>
     focus ? colors.white : !input ? colors.light : colors.lighBlue};
   display: flex;
   align-items: center;
   border-width: 2px;
-  border-color: ${({ focus, input }) =>
-    focus ? colors.purple : input ? colors.white : colors.white};
+  border-color: ${({ focus, input, error }) =>
+    error
+      ? colors.pink
+      : focus
+      ? colors.purple
+      : input
+      ? colors.white
+      : colors.white};
 `;
 
 export const Placeholder = styled(motion.p)`
