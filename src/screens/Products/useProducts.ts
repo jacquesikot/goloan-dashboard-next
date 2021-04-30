@@ -81,6 +81,14 @@ const useProducts = () => {
   const handleDelete = async (id: string) => {
     try {
       await firebaseFunc.deleteProduct(id);
+      toast({
+        title: 'Products',
+        description: 'product deleted succesfully',
+        status: 'success',
+        duration: 7000,
+        isClosable: true,
+        position: 'top',
+      });
     } catch (error) {
       toast({
         title: 'Products',
