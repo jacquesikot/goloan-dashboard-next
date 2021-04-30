@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  font-size: 16px;
-  margin-left: 5rem;
+  padding: 100px 0px;
 `;

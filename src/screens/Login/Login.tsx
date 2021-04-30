@@ -17,13 +17,9 @@ import {
   ForgotPasswordContainer,
   ForgotText,
   LoginButton,
-  SignUpContainer,
-  Text1,
-  Text2,
   MobileLogoContainer,
 } from './styles';
 import theme from '../../theme/theme';
-import { LinkIcon1 } from '../../svg';
 import { TextInput } from '../../components';
 import useLogin from './useLogin';
 
@@ -39,7 +35,7 @@ const Login = () => {
           <LogoImg src={require('../../images/goloanLogoWhite.svg')} />
         </LogoContainer>
         <TextContainer>
-          <HeadText>Fast And Secure Loans</HeadText>
+          <HeadText>ePharma Admin</HeadText>
         </TextContainer>
         <LoginImg src={require('../../images/loginImage.svg')} />
       </ImgColumn>
@@ -48,7 +44,7 @@ const Login = () => {
           <LogoImg src={require('../../images/goloanLogo.svg')} />
         </MobileLogoContainer>
         <FormContainer>
-          <SigninText>Sign in to Goloan</SigninText>
+          <SigninText>Sign in to ePhrama</SigninText>
           <Formik
             initialValues={{ email: '', password: '' }}
             validationSchema={loginSchema}
@@ -91,12 +87,6 @@ const Login = () => {
           >
             Sign in
           </LoginButton>
-          <SignUpContainer>
-            <Text1>Not a member?</Text1>
-            <Link href="/register">
-              <Text2>Sign up now</Text2>
-            </Link>
-          </SignUpContainer>
         </FormContainer>
       </FormColumn>
     </Container>

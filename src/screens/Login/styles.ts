@@ -157,37 +157,6 @@ export const LoginButton = styled(Button)`
   font-size: 14px;
 `;
 
-export const SignUpContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin-top: 25px;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Text1 = styled.p`
-  color: ${colors.primary};
-  font-size: 13px;
-  font-weight: 700;
-  margin-right: 10px;
-  letter-spacing: 0.5px;
-  font-family: 'Inter', sans-serif;
-`;
-
-export const Text2 = styled.p`
-  color: ${colors.purple};
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
-
-  &:hover {
-    color: ${colors.primary};
-  }
-`;
-
 export const MobileLogoContainer = styled.div`
   display: flex;
   flex-direction: row;

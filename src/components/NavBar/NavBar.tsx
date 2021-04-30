@@ -1,76 +1,70 @@
 import React from 'react';
-import Head from 'next/head';
+import Link from 'next/link';
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Button,
+  Text,
+} from '@chakra-ui/react';
 
 import useNavBar from './useNavBar';
 
 const NavBar = () => {
-  useNavBar();
+  const { logout } = useNavBar();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
 
   return (
     <>
-      <Head>
-        <link
-          href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
-          rel="stylesheet"
-        ></link>
-      </Head>
-      <>
-        <body id="body-pd">
-          <header className="header" id="header">
-            <div className="header__toggle">
-              <i className="bx bx-menu" id="header-toggle"></i>
-            </div>
-          </header>
+      <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+        Open
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>ePharma Admin</DrawerHeader>
 
-          <div className="l-navbar" id="nav-bar">
-            <nav className="nav">
-              <div>
-                <a href="#" className="nav__logo">
-                  <i className="bx bx-layer nav__logo-icon"></i>
-                  <span className="nav__logo-name">Bedimcode</span>
-                </a>
+            <DrawerBody>
+              <Link href="/">
+                <Text>Dashboard</Text>
+              </Link>
+              <Link href="/departments">
+                <Text>Departments</Text>
+              </Link>
+              <Link href="/categories">
+                <Text>Categories</Text>
+              </Link>
+              <Link href="/products">
+                <Text>Products</Text>
+              </Link>
+              <Link href="/customers">
+                <Text>Customers</Text>
+              </Link>
+              <Link href="/orders">
+                <Text>Orders</Text>
+              </Link>
+            </DrawerBody>
 
-                <div className="nav__list">
-                  <a href="#" className="nav__link active">
-                    <i className="bx bx-grid-alt nav__icon"></i>
-                    <span className="nav__name">Dashboard</span>
-                  </a>
-
-                  <a href="#" className="nav__link">
-                    <i className="bx bx-user nav__icon"></i>
-                    <span className="nav__name">Users</span>
-                  </a>
-
-                  <a href="#" className="nav__link">
-                    <i className="bx bx-message-square-detail nav__icon"></i>
-                    <span className="nav__name">Messages</span>
-                  </a>
-
-                  <a href="#" className="nav__link">
-                    <i className="bx bx-bookmark nav__icon"></i>
-                    <span className="nav__name">Favorites</span>
-                  </a>
-
-                  <a href="#" className="nav__link">
-                    <i className="bx bx-folder nav__icon"></i>
-                    <span className="nav__name">Data</span>
-                  </a>
-
-                  <a href="#" className="nav__link">
-                    <i className="bx bx-bar-chart-alt-2 nav__icon"></i>
-                    <span className="nav__name">Analytics</span>
-                  </a>
-                </div>
-              </div>
-
-              <a href="#" className="nav__link">
-                <i className="bx bx-log-out nav__icon"></i>
-                <span className="nav__name">Log Out</span>
-              </a>
-            </nav>
-          </div>
-        </body>
-      </>
+            <DrawerFooter>
+              <Button colorScheme="blue" onClick={() => logout()}>
+                Logout
+              </Button>
+            </DrawerFooter>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
     </>
   );
 };

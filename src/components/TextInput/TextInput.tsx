@@ -50,7 +50,7 @@ const TextInput = ({
     value && (error ? <Error size={iconSize} /> : <Check size={iconSize} />);
 
   return (
-    <Container focus={focus} input={value} error={error}>
+    <Container focus={focus.toString()} input={value} error={error}>
       <Placeholder onClick={handleSelect} animate={controls}>
         {placeholder}
       </Placeholder>
@@ -58,7 +58,7 @@ const TextInput = ({
         variant="unstyled"
         type={type}
         id={id}
-        focus={focus}
+        focus={focus.toString()}
         input={value}
         onSelect={handleSelect}
         onBlur={handleOnBlur}

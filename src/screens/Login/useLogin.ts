@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 
+import firebaseFunc from '../../firebase/init';
+
 const useLogin = () => {
   const [loading, setIsLoading] = useState<boolean>(false);
 
@@ -9,12 +11,10 @@ const useLogin = () => {
     password: Yup.string().required(),
   });
 
-  const handleSubmit = (info) => {
+  const handleSubmit = async (info) => {
     setIsLoading(true);
-    setTimeout(() => {
-      console.log(info);
-      setIsLoading(false);
-    }, 2000);
+    await firebaseFunc.signInUser(info.email, info.password);
+    setIsLoading(false);
   };
 
   return {

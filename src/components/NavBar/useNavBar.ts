@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import firebaseFunc from '../../firebase/init';
+
 const useNavBar = () => {
   useEffect(() => {
     showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header');
@@ -37,6 +39,14 @@ const useNavBar = () => {
         headerpd.classList.toggle('body-pd');
       });
     }
+  };
+
+  const logout = async () => {
+    await firebaseFunc.logOutUser();
+  };
+
+  return {
+    logout,
   };
 };
 
